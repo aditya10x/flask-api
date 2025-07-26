@@ -1,0 +1,16 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:16.1-alpine3.19
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    # Define the port mapping for the PostgreSQL database
+    # this opens up a port in our container so that we can pass
+    # the messages throught that port over to our databse which resides in docker
+    # container so any application our flask app will send message to databse via this port
+    ports:
+      - "5432:5432"
+      
