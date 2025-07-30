@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:16.1-alpine3.19
     restart: always
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+    env_file:
+      - C:\Users\Aditya Patibandha\Desktop\flask-api\env_vans\postgres.env
+
     # Define the port mapping for the PostgreSQL database
     # this opens up a port in our container so that we can pass
     # the messages throught that port over to our databse which resides in docker
@@ -14,3 +14,9 @@ services:
     ports:
       - "5432:5432"
       
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+    - "8080:8080"
+    
