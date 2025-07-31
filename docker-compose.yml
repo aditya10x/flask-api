@@ -13,6 +13,9 @@ services:
     # container so any application our flask app will send message to databse via this port
     ports:
       - "5432:5432"
+
+    volumes:
+      - ./scripts:/docker-entrypoint-initdb.d
       
   adminer:
     image: adminer
